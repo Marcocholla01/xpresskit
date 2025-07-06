@@ -1,0 +1,69 @@
+{
+  "compilerOptions": {
+    // ✅ Use the latest built-in JavaScript APIs (e.g., Promise, Map)
+    "lib": ["ESNext"],
+
+    // ✅ Compile to latest JS features
+    "target": "ESNext",
+    "module": "ESNext",
+
+    // ✅ Resolve modules like Node.js does
+    "moduleResolution": "node",
+
+    // ✅ Enables importing `.ts`, `.js`, etc. with extensions
+    "allowImportingTsExtensions": true,
+
+    // ✅ Allow importing .json files directly
+    "resolveJsonModule": true,
+
+    // ✅ Allow using JS files alongside TS (optional — remove if you’re TS-only)
+    "allowJs": true,
+
+    // ✅ Ensures import paths retain their extensions (important for Bun)
+    "verbatimModuleSyntax": true,
+
+    // ✅ Bun executes TypeScript directly — no need to emit JavaScript
+    "noEmit": true,
+
+    // ✅ Force type-checking of all modules (even if not explicitly imported)
+    "moduleDetection": "force",
+
+    // ✅ Allow CommonJS modules to work nicely with `import`
+    "esModuleInterop": true,
+
+    // ✅ Catch more bugs with strict type checks
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+
+    // ✅ Optional: fine-tune unused checks
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noPropertyAccessFromIndexSignature": false,
+
+    // ✅ Path aliases (for cleaner imports like `@/utils/logger`)
+    "baseUrl": "./src",
+    "paths": {
+      "@/config/*": ["config/*"],
+      "@/controllers/*": ["controllers/*"],
+      "@/libs/*": ["libs/*"],
+      "@/routes/*": ["routes/*"],
+      "@/middlewares/*": ["middlewares/*"],
+      "@/schemas/*": ["schemas/*"],
+      "@/services/*": ["services/*"],
+      "@/socket/*": ["socket/*"],
+      "@/templates/*": ["templates/*"],
+      "@/types/*": ["types/*"],
+      "@/utils/*": ["utils/*"]
+    },
+
+    // ✅ Allow modern test tools like Vitest to read ESM modules
+    "types": ["vitest/globals"]
+  },
+  // ✅ Tell the compiler where your source files live
+  "include": ["src", "src/types"],
+
+  // ✅ Tell the compiler not to compile files in node_modules
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CUSTOMER
+  ADMIN
+  MODERATOR
+  SUPER_ADMIN
+}
+
+model User {
+  id            String   @id @default(uuid())
+  fullNames     String   @map("full_names")
+  username      String   @unique
+  emailAddress  String   @unique @map("email_address")
+  emailVerified Boolean  @default(false) @map("email_verified")
+  phoneNumber   String?  @unique @map("phone_number")
+  password      String
+  role          Role     @default(CUSTOMER)
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  sessions Session[]
+  profile  Profile?
+
+  @@map("users")
+}
+
+model Profile {
+  id          String    @id @default(uuid())
+  userId      String    @unique @map("user_id")
+  avatar      String? // Profile image URL
+  coverImage  String?   @map("cover_image") // Cover/banner image
+  bio         String?
+  location    String?
+  website     String?
+  birthday    DateTime?
+  gender      String?
+  occupation  String?
+  company     String?
+  phonePublic String?   @map("public_phone")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("profiles")
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  userId       String   @map("user_id")
+  refreshToken String   @map("refresh_token") // store hashed version!
+  ipAddress    String   @map("ip_address")
+  userAgent    String   @map("user_agent")
+  device       String?
+  location     String?
+  isRevoked    Boolean  @default(false) @map("is_revoked")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+  expiresAt    DateTime @map("expires_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("sessions")
+}
