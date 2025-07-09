@@ -1,6 +1,7 @@
 {
-  "name": "ts-strater-kit-server",
-  "module": "index.ts",
+  "name": "xpresskit",
+  "module": "src/server.ts",
+  "description": "XPressKit is a modern and minimalistic starter kit for building scalable backend applications using Express.js, TypeScript, and Prisma ORM. Designed for speed, structure, and scalability, it's perfect for quickly bootstrapping RESTful APIs or microservices with best practices baked in.",
   "type": "module",
   "private": true,
   "packageManager": "bun@1.2.13",
