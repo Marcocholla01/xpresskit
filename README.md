@@ -87,7 +87,7 @@ Whether you're building a RESTful API or a microservice architecture, XPressKit 
   - npm
   - Yarn
   - Bun (suggested by presence of `bun.lockb`)
-- Database (PostgreSQL, MySQL, MongoDB) — supported by Prisma
+- Database (PostgreSQL, MySQL, MongoDB, SQLite) — supported by Prisma
 
 ---
 
@@ -96,8 +96,8 @@ Whether you're building a RESTful API or a microservice architecture, XPressKit 
 Clone the repository:
 
 ```bash
-git clone <repository-url>
-cd ts-starter-kit-server
+git clone https://github.com/marcocholla01/xpresskit.git
+cd xpresskit
 ```
 
 Install dependencies:
