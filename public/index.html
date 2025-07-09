@@ -1,35 +1,115 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" href="favicon.png" />
-    <title>Socket.IO Admin UI</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css"
-    />
-    <link href="css/app.6e3b9661.css" rel="preload" as="style" />
-    <link href="css/chunk-vendors.9f55d012.css" rel="preload" as="style" />
-    <link href="js/app.0d7d7845.js" rel="preload" as="script" />
-    <link href="js/chunk-vendors.934c03ff.js" rel="preload" as="script" />
-    <link href="css/chunk-vendors.9f55d012.css" rel="stylesheet" />
-    <link href="css/app.6e3b9661.css" rel="stylesheet" />
-  </head>
-  <body>
-    <noscript
-      ><strong
-        >We're sorry but Socket.IO Admin UI doesn't work properly without JavaScript enabled. Please
-        enable it to continue.</strong
-      ></noscript
-    >
-    <div id="app"></div>
-    <script src="js/chunk-vendors.934c03ff.js"></script>
-    <script src="js/app.0d7d7845.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XPressKit API Docs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .gradient-text {
+      background: linear-gradient(to right, #0284c7, #0ea5e9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .gradient-bg {
+      background: linear-gradient(to right, #0284c7, #0ea5e9);
+    }
+    .code-block {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      font-family: monospace;
+      font-size: 0.875rem;
+      overflow-x: auto;
+    }
+    .endpoint {
+      background: #f1f5f9;
+      border-radius: 0.5rem;
+      color: #0f172a;
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+      border-left: 4px solid #10b981;
+    }
+    .endpoint .method {
+      font-weight: bold;
+      color: #10b981;
+      margin-right: 0.75rem;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-900 to-blue-700 min-h-screen text-gray-100">
+  <div class="container mx-auto px-4 py-8 max-w-6xl">
+    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-2xl overflow-hidden transition-all duration-300">
+      <!-- Header -->
+      <div class="gradient-bg text-white px-8 py-12 text-center">
+        <div class="max-w-3xl mx-auto">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4 flex items-center justify-center">
+            <span class="animate-[float_3s_ease-in-out_infinite] mr-3">🚀</span> 
+            <span>XPressKit API</span>
+          </h1>
+          <p class="text-xl opacity-90">A modular Express.js + TypeScript backend boilerplate with Zod validation, JWT auth, Prisma ORM, and OpenAPI docs.</p>
+        </div>
+      </div>
+
+      <!-- Features & Docs -->
+      <div class="px-6 py-10 md:px-10 md:py-12">
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold gradient-text mb-6">🎯 Quick Access</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <a href="/docs" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg font-semibold text-center transition-all">Scalar UI</a>
+            <a href="/docs/swagger" class="bg-yellow-500 hover:bg-yellow-600 text-white px-5 py-3 rounded-lg font-semibold text-center transition-all">Swagger UI</a>
+            <a href="/docs/redoc" class="bg-red-500 hover:bg-red-600 text-white px-5 py-3 rounded-lg font-semibold text-center transition-all">ReDoc UI</a>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold gradient-text mb-6">🔐 Features</h2>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-800 dark:text-gray-300">
+            <li class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-md">✅ JWT Authentication & Refresh Token Support</li>
+            <li class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-md">✅ Prisma ORM Configured</li>
+            <li class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-md">✅ Zod-based Validation</li>
+            <li class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-md">✅ File Uploads with multer</li>
+            <li class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-md">✅ Node Cron Jobs</li>
+            <li class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-md">✅ OpenAPI Documentation (Auto-generated)</li>
+            <li class="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-md">✅ Logs Generation</li>
+          </ul>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold gradient-text mb-6">📡 Sample Endpoints</h2>
+          <div class="space-y-3 text-gray-800 dark:text-gray-200">
+            <div class="endpoint"><span class="method">POST</span>/auth/register – Register new user</div>
+            <div class="endpoint"><span class="method">POST</span>/auth/login – Login and receive JWT</div>
+            <div class="endpoint"><span class="method">GET</span>/auth/me – Get current user profile</div>
+            <div class="endpoint"><span class="method">POST</span>/auth/refresh – Refresh access token</div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold gradient-text mb-6">🧰 Tech Stack</h2>
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Express.js</span>
+            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">TypeScript</span>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Zod</span>
+            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Prisma</span>
+            <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-medium">JWT Auth</span>
+            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">OpenAPI 3.0</span>
+            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">Socket.IO</span>
+            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">Scrypt</span>
+            <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium">Vtest & Supertest</span>
+          </div>
+        </section>
+      </div>
+
+      <footer class="bg-gray-900 text-gray-400 text-center py-6">
+        <p>Built with ❤️ by Marcocholla • <a href="https://github.com/marcocholla01/xpresskit" class="text-blue-400 hover:text-blue-300">View on GitHub</a></p>
+      </footer>
+    </div>
+  </div>
+</body>
 </html>

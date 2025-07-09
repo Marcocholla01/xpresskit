@@ -1,54 +1,34 @@
-// src/schemas/user.schema.ts
+import { extendZodWithOpenApi } from '@asteasolutions/zod-to-openapi';
 import { z } from 'zod';
 
-export const loginUserSchema = z.object({
-  username: z
-    .string({ message: 'Enter Your username' })
-    .min(3, {
-      message: 'Username or email must be at least 3 characters long.',
-    })
-    .max(30, { message: 'Username or email must not exceed 30 characters.' }),
+extendZodWithOpenApi(z);
 
-  password: z
-    .string({ message: 'Enter Your password' })
-    .min(6, { message: 'Password must be at least 6 characters long.' })
-    .max(100, { message: 'Password must not exceed 100 characters.' }),
-});
+export const createUserSchema = z
+  .object({
+    fullNames: z
+      .string({ message: 'Enter your full name' })
+      .min(3, { message: 'Full name must be at least 3 characters long.' })
+      .max(50, { message: 'Full name must not exceed 50 characters.' })
+      .openapi({
+        description: 'User full name',
+        example: 'John Doe',
+      }),
 
-export const createUserSchema = z.object({
-  fullNames: z
-    .string({ message: 'Enter Your full names' })
-    .min(3, { message: 'Full name must be at least 3 characters long.' })
-    .max(50, { message: 'Full name must not exceed 50 characters.' }),
+    emailAddress: z
+      .string({ message: 'Enter your email address' })
+      .email({ message: 'Enter a valid email address.' })
+      .openapi({
+        description: 'Valid email address of the user',
+        example: 'john.doe@example.com',
+      }),
 
-  emailAddress: z
-    .string({ message: 'Enter Your email address' })
-    .min(1, { message: 'Email is required.' })
-    .email({ message: 'Enter a valid email address.' }),
-
-  username: z
-    .string({ message: 'Enter Your username' })
-    .min(3, { message: 'Username must be at least 3 characters long.' })
-    .max(30, { message: 'Username must not exceed 30 characters.' }),
-});
-
-export const registerUserSchema = createUserSchema
-  .extend({
-    password: z
-      .string({ message: 'Enter your password' })
-      .min(6, { message: 'Password must be at least 6 characters long.' })
-      .max(100, { message: 'Password must not exceed 100 characters.' }),
-
-    phoneNumber: z
-      .string({ message: 'Enter your phone Number' })
-      .regex(/^\+?\d{10,13}$/, {
-        message: 'Phone number must be 10–13 digits and can start with +.',
-      })
-      .optional(),
-
-    confirmPassword: z.string(),
+    username: z
+      .string({ message: 'Enter your username' })
+      .min(3, { message: 'Username must be at least 3 characters long.' })
+      .max(30, { message: 'Username must not exceed 30 characters.' })
+      .openapi({
+        description: 'Unique username for the user',
+        example: 'johndoe',
+      }),
   })
-  .refine(data => data.password === data.confirmPassword, {
-    message: 'Passwords do not match.',
-    path: ['confirmPassword'],
-  });
+  .openapi('CreateUserSchema');

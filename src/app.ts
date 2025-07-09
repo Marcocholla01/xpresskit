@@ -13,9 +13,12 @@ import morgan from 'morgan';
 import { globalErrorHandler } from '@/middlewares/globalErrorHandler';
 import { requestLogger } from '@/middlewares/requestLogger';
 import authRoutes from '@/routes/auth.routes';
+import docsRoutes from '@/routes/docs.routes';
 import healthRoutes from '@/routes/health.routes';
 import userRoutes from '@/routes/user.routes';
 import { loggerStream } from '@/utils/logger';
+
+import { getOpenApiSpec } from './controllers/docs.controllers';
 
 const app = express();
 
@@ -25,6 +28,8 @@ const __dirname = dirname(__filename);
 app.use(statusMonitor());
 app.use('/', express.static(join(__dirname, '..', 'public')));
 app.use('/uploads', express.static(join(__dirname, '..', 'uploads')));
+app.get('/openapi.json', getOpenApiSpec);
+app.use('/docs', docsRoutes);
 
 app.use(helmet());
 app.use(compression());

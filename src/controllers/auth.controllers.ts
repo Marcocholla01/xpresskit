@@ -3,7 +3,7 @@ import { FRONTEND_URL } from '@/config/envs';
 import prisma from '@/config/prisma-client';
 import { sendMail } from '@/libs/mailer';
 import { catchAsync } from '@/middlewares/catchAsync';
-import { loginUserSchema, registerUserSchema } from '@/schemas/user.schema';
+import { loginUserSchema, registerUserSchema } from '@/schemas/auth.schema';
 import { loginUserService, refreshAuthTokens, registerUserService } from '@/services/auth.services';
 import { appError } from '@/utils/appError';
 import { logger } from '@/utils/logger';

@@ -283,7 +283,7 @@ Special thanks to:
 - [Node.js](https://nodejs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Express.js](https://expressjs.com/)
-<!-- - [Open Source Contributors](https://github.com/your-username/xpresskit/graphs/contributors) -->
+<!-- - [Open Source Contributors](https://github.com/marcocholla01/xpresskit/graphs/contributors) -->
 
 Project maintained by [**Paul Ocholla**](https://marcocholla.netlify.app/)  
 Connect on [LinkedIn](https://linkedin.com/in/marcocholla) or [Twitter](https://twitter.com/marcochollaP)
