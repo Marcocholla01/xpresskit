@@ -1,0 +1,13 @@
+{
+  "entryPoints": ["src"],
+  "entryPointStrategy": "expand",
+  "out": "./docs/tsdoc",
+  "exclude": ["**/__tests__/**/*", "**/*.spec.ts", "**/*.test.ts"],
+  "excludePrivate": true,
+  "excludeExternals": true,
+  "excludeProtected": true,
+  "hideGenerator": true,
+  "readme": "README.md",
+  "name": "XPressKit Backend API",
+  // "plugin": ["typedoc-plugin-markdown"]
+}

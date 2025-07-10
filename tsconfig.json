@@ -65,5 +65,5 @@
   "include": ["src", "src/types"],
 
   // ✅ Tell the compiler not to compile files in node_modules
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules","**/__tests__/**", "**/*.test.ts", "**/*.spec.ts"]
 }

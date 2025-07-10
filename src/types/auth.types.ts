@@ -1,5 +1,6 @@
-import type { loginUserSchema, registerUserSchema } from '@/schemas/user.schema';
 
+
+import type { loginUserSchema, registerUserSchema } from '@/schemas/auth.schema';
 import type { JWTPayload } from 'jose';
 import type { z } from 'zod';
 

@@ -1,0 +1,19 @@
+{
+  "babel": {
+    "extensions": ["ts"]
+  },
+  "source": {
+    "include": ["src/"],
+    "includePattern": ".+\\.ts$",
+    "excludePattern": "(node_modules|dist|src/__test__)"
+  },
+  "plugins": [
+    "node_modules/jsdoc-babel",
+    "plugins/markdown"
+  ],
+  "opts": {
+    "destination": "./docs/jsdoc",
+    "recurse": true,
+    "readme": "./README.md"
+  }
+}

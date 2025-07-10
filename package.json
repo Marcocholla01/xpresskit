@@ -19,9 +19,15 @@
     "db:studio": "bunx prisma studio",
     "db:clear": "tsx prisma/clear.ts",
     "db:seed": "tsx prisma/seeder.ts",
-    "generate:docs": "tsx scripts/generate-openapi.ts"
+    "docs": "jsdoc -c jsdoc.json",
+    "docs:ts": "typedoc --options typedoc.json",
+    "generate:docs": "tsx scripts/generate-openapi.ts",
+    "rename":"tsx scripts/rename-md-to-mdx.ts",
+    "docs:all":"bun docs && bun docs:ts"
   },
   "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-typescript": "^7.27.1",
     "@faker-js/faker": "^9.8.0",
     "@types/bun": "latest",
     "@types/colors": "^1.2.4",
@@ -54,10 +60,14 @@
     "eslint-plugin-prisma": "^1.0.1",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-vitest": "^0.5.4",
+    "jsdoc": "^4.0.4",
+    "jsdoc-babel": "^0.5.0",
     "prettier": "^3.6.2",
     "prisma": "^6.11.1",
     "supertest": "^7.1.1",
     "tsx": "^4.20.3",
+    "typedoc": "^0.28.7",
+    "typedoc-plugin-markdown": "^4.7.0",
     "typescript-eslint": "^8.35.0",
     "vitest": "^3.2.4"
   },
